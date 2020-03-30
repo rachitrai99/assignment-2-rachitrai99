@@ -10,16 +10,16 @@ import problem1.node.TreeNode;
 
 // to implement BinarySearchTree
 public class MyBinarySearchTree {
-    TreeNode root;
-    int count;
+    private TreeNode root;
+    private int count;
 
     public MyBinarySearchTree(){
-        root=null;
-        count=0;
+        root = null;
+        count = 0;
     }
+
     public void insert(int data){
-        TreeNode ns = new TreeNode();
-        ns.setData(data);
+        TreeNode ns = new TreeNode(data);
         if(root == null){
             root = ns;
         }
@@ -47,15 +47,12 @@ public class MyBinarySearchTree {
             }
         }
     }
-
     private void LeftNode(TreeNode root){
         if(root == null)
             return;
         else{
-            if(root.getLeft()!=null)
-                System.out.println(root.getLeft().getData());
-            else
-                count++;
+            if(root.getLeft()!=null) System.out.println(root.getLeft().getData());
+            else    count++;
             LeftNode(root.getLeft());
             LeftNode(root.getRight());
         }
@@ -70,8 +67,7 @@ public class MyBinarySearchTree {
     }
 
     public void preorder(TreeNode root){
-        if(root == null)
-            return;
+        if(root == null)    return;
         else{
             System.out.print(root.getData()+"\t");
             preorder(root.getLeft());
@@ -98,5 +94,4 @@ public class MyBinarySearchTree {
     public TreeNode getroot(){
         return root;
     }
-
 }

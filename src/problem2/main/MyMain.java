@@ -8,16 +8,25 @@ package problem2.main;
 // executable class
 // use problem1.mybst.MyBinarySearchTree class for creating binary tree
 
-import problem1.mybst.MyBinarySearchTree;
+import problem2.bst.MyBinarySearchTree;
+import problem4.myqueue.MyQueue;
 
 public class MyMain {
     public static void main(String[] args) {
-        MyBinarySearchTree obj=new MyBinarySearchTree();
-        obj.insert(5);
-        obj.insert(6);
-        obj.insert(50);
-        obj.insert(40);
-        obj.insert(30);
-        obj.preVSpost();
+        MyQueue preQueue=new MyQueue();
+        MyQueue postQueue=new MyQueue();
+        MyBinarySearchTree myBinarySearchTree=new MyBinarySearchTree(preQueue,postQueue);
+        myBinarySearchTree.insert(15);
+        myBinarySearchTree.insert(10);
+        myBinarySearchTree.insert(50);
+        myBinarySearchTree.insert(55);
+        myBinarySearchTree.insert(60);
+        myBinarySearchTree.postOrder(myBinarySearchTree.getRoot());
+        myBinarySearchTree.preOrder(myBinarySearchTree.getRoot());
+        System.out.println("Pre Order: ");
+        preQueue.show();
+        System.out.println("Post order : ");
+        postQueue.show();
+        System.out.println();
     }
 }

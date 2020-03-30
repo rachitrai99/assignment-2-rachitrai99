@@ -6,32 +6,34 @@
  */
 package problem3.node;
 
-public class Node {
-    String name;
-    int roll;
-    Node next;
+import problem3.Student;
 
-    public String getName() {
-        return name;
+public class Node {
+    private Student data;
+    private Node next;
+
+    public Node(Student data){
+        this.data = data;
+        this.next = null;
     }
 
-    public int getRoll() {
-        return roll;
+    public Student getData() {
+        return data;
+    }
+
+    public void setData(Student data) {
+        this.data = data;
     }
 
     public Node getNext() {
         return next;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setRoll(int roll) {
-        this.roll = roll;
-    }
-
     public void setNext(Node next) {
         this.next = next;
+    }
+
+    public int compareTo(Student data){
+        return data.getRollNo() - this.data.getRollNo();
     }
 }
